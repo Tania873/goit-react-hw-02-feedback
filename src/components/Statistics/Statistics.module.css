@@ -1,0 +1,9 @@
+.statisticsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.statisticsBox p {
+    margin: 0;
+}
