@@ -6,7 +6,12 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div className={css.buttonBox}>
       {Object.keys(options).map(el => (
-        <button type="button" className={css.button} key={el} onClick={onLeaveFeedback}>
+        <button
+          type="button"
+          className={css.button}
+          key={el}
+          onClick={() => onLeaveFeedback(el)}
+        >
           {el}
         </button>
       ))}

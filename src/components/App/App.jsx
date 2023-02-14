@@ -12,10 +12,9 @@ class App extends Component {
     bad: 0,
   };
 
-  handleFeedbackBtnClick = event => {
-    this.setState(previousState => ({
-      [event.target.innerText.toLowerCase()]:
-        previousState[event.target.innerText.toLowerCase()] + 1,
+  handleFeedbackBtnClick = state => {
+    this.setState(prevState => ({
+      [state]: prevState[state] + 1,
     }));
   };
 
@@ -36,15 +35,17 @@ class App extends Component {
             />
           </Section>
           <Section title="Statistics">
-            {countTotalFeedback() === 0 ? 
-              <Notification message="There is no feedback" /> :
+            {countTotalFeedback() === 0 ? (
+              <Notification message="There is no feedback" />
+            ) : (
               <Statistics
                 good={this.state.good}
                 neutral={this.state.neutral}
                 bad={this.state.bad}
                 total={countTotalFeedback()}
                 positivePercentage={countPositiveFeedbackPercentage()}
-              />}
+              />
+            )}
           </Section>
         </div>
       </div>
